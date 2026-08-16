@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About | Enterprise AI Product Designer</title>
+  <meta name="description" content="About — an enterprise AI product designer working at the intersection of systems thinking, human-centered design, and intelligence.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#6c59ff",
+            "inverse-on-surface": "#f5f5f5",
+            "primary-container": "#1b1b1b",
+            "on-secondary-fixed-variant": "#3b18d2",
+            "on-primary-container": "#848484",
+            "surface": "#ffffff",
+            "outline": "#7e7576",
+            "on-primary-fixed-variant": "#474747",
+            "surface-dim": "#f0f0f0",
+            "on-primary-fixed": "#1b1b1b",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#838486",
+            "surface-tint": "#5e5e5e",
+            "background": "#ffffff",
+            "on-surface": "#1a1b22",
+            "on-tertiary-fixed-variant": "#454749",
+            "outline-variant": "#cfc4c5",
+            "tertiary-fixed-dim": "#c6c6c8",
+            "surface-container-highest": "#f0f0f0",
+            "inverse-primary": "#c6c6c6",
+            "primary": "#000000",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed": "#e4dfff",
+            "surface-container-high": "#f5f5f5",
+            "secondary-fixed-dim": "#c6c0ff",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#e2e2e2",
+            "on-error-container": "#93000a",
+            "secondary": "#523be6",
+            "tertiary-container": "#1a1c1d",
+            "surface-variant": "#f0f0f0",
+            "error-container": "#ffdad6",
+            "tertiary": "#000000",
+            "on-background": "#1a1b22",
+            "tertiary-fixed": "#e2e2e4",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-secondary-fixed": "#150066",
+            "inverse-surface": "#2f3038",
+            "surface-container-low": "#ffffff",
+            "on-surface-variant": "#4c4546",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-container": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#1a1c1d",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "9999px"
+          },
+          spacing: {
+            unit: "4px",
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+            "margin-mobile": "20px",
+            gutter: "24px"
+          },
+          fontFamily: {
+            "label-sm": ["Geist"],
+            "headline-lg": ["Geist"],
+            "headline-md": ["Geist"],
+            "display-lg": ["Geist"],
+            "body-lg": ["Geist"],
+            "body-md": ["Geist"],
+            "display-lg-mobile": ["Geist"]
+          },
+          fontSize: {
+            "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}],
+            "headline-lg": ["32px", {lineHeight: "1.3", fontWeight: "500"}],
+            "headline-md": ["24px", {lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600"}],
+            "display-lg": ["64px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400"}],
+            "body-lg": ["20px", {lineHeight: "1.6", fontWeight: "400"}],
+            "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}],
+            "display-lg-mobile": ["40px", {lineHeight: "1.2", fontWeight: "400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #ffffff;
+      color: #1a1b22;
+    }
+    .editorial-line {
+      height: 1px;
+      background-color: #cfc4c5;
+      width: 100%;
+    }
+    .photo-track {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @media (min-width: 768px) {
+      .photo-track {
+        padding-left: max(64px, calc((100vw - 1280px) / 2 + 64px));
+        padding-right: 64px;
+      }
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden">
+
+  <!-- Navigation (floating glass pill) -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div class="flex items-center gap-1 bg-white/70 backdrop-blur-xl rounded-full pl-2 pr-2 py-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)]">
+      <a href="index.html" class="flex items-center gap-3 pr-4 border-r border-outline-variant/30">
+        <img src="images/Xiaolin.jpg" alt="Xiaolin Jiang" class="w-8 h-8 rounded-full object-cover">
+        <span class="font-body-md text-body-md font-semibold tracking-tight text-primary whitespace-nowrap">Xiaolin Jiang</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 pr-1">
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="index.html">Work</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="work.html">Play</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-primary font-semibold" href="about.html">About</a>
+      </div>
+      <button class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-16">
+    <!-- Hero Section -->
+    <section class="px-margin-desktop max-w-container-max mx-auto mb-32">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+        <div class="md:col-span-8">
+          <h1 class="font-display-lg text-display-lg mb-8 leading-tight">Designing technology people can <span class="italic text-secondary">understand, trust, and benefit</span> from.</h1>
+          <p class="font-body-lg text-body-lg max-w-2xl text-on-surface-variant">
+            I'm a Product Designer working at the intersection of AI, complex systems, and human collaboration. I specialize in AI-native products and complex systems, helping teams transform emerging technologies into intuitive experiences that create meaningful impact.
+          </p>
+        </div>
+        <div class="md:col-span-4 flex justify-end">
+          <div class="w-full aspect-square bg-surface-container overflow-hidden relative group">
+            <img class="w-full h-full object-cover" src="images/hero-bw.png" alt="Portrait at the eit Digital graduation, holding the IDEATE. ITERATE. INNOVATE. NEVER STOP. folder">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="bg-surface-container-low py-32">
+      <div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <div class="md:col-span-4">
+          <h2 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant sticky top-32">About</h2>
+        </div>
+        <div class="md:col-span-7 md:col-start-6 space-y-8">
+          <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            I enjoy tackling problems where technology, people, and workflows come together—transforming sophisticated AI capabilities into experiences that feel intuitive, trustworthy, and genuinely useful.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Over the past few years, I've designed enterprise AI products, researched knowledge-driven collaboration, and partnered closely with engineers, researchers, and product teams to shape AI-native experiences. Whether I'm facilitating discovery workshops, mapping complex workflows, or rapidly prototyping new ideas with AI, my goal remains the same: understand the bigger picture before designing the details.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            I naturally think in systems rather than individual screens. I enjoy connecting perspectives across design, engineering, and business to build shared understanding, especially when navigating ambiguous or technically complex problems. I believe the best product decisions emerge when diverse expertise comes together around a common understanding of users.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            What motivates me most is creating meaningful impact through technology. I'm fascinated by emerging technologies—not simply because they're new, but because they have the potential to fundamentally improve how people work, learn, and collaborate. As AI becomes increasingly capable, I believe designers have a responsibility to ensure these systems are not only powerful, but also understandable, transparent, and beneficial for the people who rely on them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Principles -->
+    <section class="bg-surface-container-high px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-32">
+      <!-- Section header with line -->
+      <div class="flex items-center gap-4 mb-16">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">My Approach</span>
+        <span class="flex-1 h-[1px] bg-outline-variant/30"></span>
+      </div>
+
+      <!-- 3-column principles -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <!-- 01 -->
+        <div class="space-y-6">
+          <span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider">01</span>
+          <h3 class="font-headline-lg text-headline-lg text-primary leading-tight">Think in<br>systems.</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">I zoom out before zooming in, understanding the broader context before designing individual interactions.</p>
+        </div>
+
+        <!-- 02 -->
+        <div class="space-y-6">
+          <span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider">02</span>
+          <h3 class="font-headline-lg text-headline-lg text-primary leading-tight">Create shared understanding.</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">I enjoy working across disciplines, translating between design, engineering, and product to help teams make better decisions together.</p>
+        </div>
+
+        <!-- 03 -->
+        <div class="space-y-6">
+          <span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider">03</span>
+          <h3 class="font-headline-lg text-headline-lg text-primary leading-tight">Design for meaningful impact.</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">I believe technology should solve real problems and create lasting value for people, organizations, and society.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-32">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <!-- Left: sticky label -->
+        <div class="md:col-span-4">
+          <h2 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant sticky top-32">Experience</h2>
+        </div>
+        <!-- Right: entries -->
+        <div class="md:col-span-7 md:col-start-6 space-y-0">
+          <!-- Entry 01 -->
+          <div class="py-10 border-b border-outline-variant/20">
+            <div class="flex justify-between items-start gap-8">
+              <div class="space-y-2">
+                <h3 class="font-headline-lg text-headline-lg text-primary">UI/UX Design Professional</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">Trimble Inc. · Full-time</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80">Espoo, Uusimaa, Finland · Hybrid</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 pt-6">Trimble Agentic AI Platform (Trimble Assist, Trimble Agent Studio), Tekla AI Agents</p>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap tracking-wider">May 2024 — Present</span>
+            </div>
+          </div>
+
+          <!-- Entry 02 -->
+          <div class="py-10 border-b border-outline-variant/20">
+            <div class="flex justify-between items-start gap-8">
+              <div class="space-y-2">
+                <h3 class="font-headline-lg text-headline-lg text-primary">Research Assistant</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">Aalto University Department of Computer Science · Full-time</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80">Espoo, Uusimaa, Finland · Hybrid</p>
+                <p class="font-body-md text-body-md text-on-surface-variant/80 leading-relaxed pt-6">Researching on future requirements and guidelines for general knowledge capture in collaborative design environment (BIM) for machine learning use.</p>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap tracking-wider">Mar 2024 — Sep 2024</span>
+            </div>
+          </div>
+
+          <!-- Entry 03 -->
+          <div class="py-10 border-b border-outline-variant/20">
+            <div class="flex justify-between items-start gap-8">
+              <div class="space-y-2">
+                <h3 class="font-headline-lg text-headline-lg text-primary">Research Intern</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">GDFN-Global design futures network · Internship</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80">Beijing, China · Remote</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 pt-6">Foresight and Futures Studies</p>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap tracking-wider">Nov 2022 — Jan 2023</span>
+            </div>
+          </div>
+
+          <!-- Entry 04 -->
+          <div class="py-10 border-b border-outline-variant/20">
+            <div class="flex justify-between items-start gap-8">
+              <div class="space-y-2">
+                <h3 class="font-headline-lg text-headline-lg text-primary">UX Research Trainee</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">MOMOUX 墨默体验设计咨询 · Internship</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80">Shenzhen, Guangdong, China · On-site</p>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap tracking-wider">Mar 2022 — Jun 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Off the Clock: Films, Books, Music -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-32">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <div class="md:col-span-4">
+          <h2 class="font-label-sm text-label-sm uppercase tracking-widest sticky top-32 text-on-surface-variant">Off the Clock</h2>
+        </div>
+        <div class="md:col-span-7 md:col-start-6 space-y-16">
+
+          <!-- Films & TV -->
+          <div class="space-y-5">
+            <h3 class="font-headline-md text-headline-md text-primary">Films &amp; TV</h3>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://www.imdb.com/title/tt2085059/" target="_blank" rel="noopener">
+                <img src="https://image.tmdb.org/t/p/w300/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg" alt="Black Mirror" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://www.imdb.com/title/tt0475784/" target="_blank" rel="noopener">
+                <img src="https://image.tmdb.org/t/p/w300/ALlSU9du9iRiKIIoY1sREGNqQ5.jpg" alt="Westworld" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://www.imdb.com/title/tt11464826/" target="_blank" rel="noopener">
+                <img src="https://image.tmdb.org/t/p/w300/jcaM6V2tCtu6iMHDsGLBUbaYgYp.jpg" alt="The Social Dilemma" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://www.imdb.com/title/tt3783958/" target="_blank" rel="noopener">
+                <img src="https://image.tmdb.org/t/p/w300/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg" alt="La La Land" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://www.imdb.com/title/tt26743210/" target="_blank" rel="noopener">
+                <img src="https://image.tmdb.org/t/p/w300/rnIOUhzwJDfgQakx8EjoNyItKgs.jpg" alt="The Drama" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+            </div>
+          </div>
+
+          <!-- Books — bookshelf -->
+          <div class="space-y-5">
+            <h3 class="font-headline-md text-headline-md text-primary">Books</h3>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://books.google.com/books?id=vCAmLwEACAAJ" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/cc/d3/50ccd3f7-c1f0-5d64-3a92-697050102053/9781603588478_1.png/300x300bb.jpg" alt="Thinking in Systems" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://books.google.com/books?id=Kb0gEAAAQBAJ" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/42/f9/e242f9f0-ff09-f21c-045d-6c25fd98fe44/9781250403155.jpg/300x300bb.jpg" alt="Careless People" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://rosenfeldmedia.com/books/designing-agentive-technology/" target="_blank" rel="noopener">
+                <img src="https://images-na.ssl-images-amazon.com/images/P/1933820632.01._SX300_.jpg" alt="Designing Agentive Technology" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-[2/3] hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+            </div>
+          </div>
+
+          <!-- Music -->
+          <div class="space-y-5">
+            <h3 class="font-headline-md text-headline-md text-primary">Music</h3>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://music.apple.com/us/artist/gracie-abrams/1450554836" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2a/3a/f3/2a3af30e-04e3-37f0-0d2e-5303d72f7229/24UMGIM43488.rgb.jpg/300x300bb.jpg" alt="Gracie Abrams" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://music.apple.com/us/artist/laufey/1504424880" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/1f/de/6c/1fde6cb4-9703-c214-cdc6-8ecf7d0f0aa0/197189040030.jpg/300x300bb.jpg" alt="Laufey" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://music.apple.com/us/artist/olivia-rodrigo/979458609" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/9e/0d/17/9e0d17e0-c068-fbd9-fd85-610cc87c86aa/23UMGIM71511.rgb.jpg/300x300bb.jpg" alt="Olivia Rodrigo" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://music.apple.com/us/artist/troye-sivan/396295677" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2f/be/8e/2fbe8e03-8f6f-db84-86d5-1e2bff7f94aa/26UMGIM16948.rgb.jpg/300x300bb.jpg" alt="Troye Sivan" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://music.apple.com/us/artist/keshi/430144465" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e2/de/98/e2de9860-b40b-e33f-f68e-ab8e0956a538/22UMGIM07345.rgb.jpg/300x300bb.jpg" alt="keshi" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://music.apple.com/us/artist/taylor-swift/159260351" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8e/35/6c/8e356cc2-0be4-b83b-d29e-b578623df2ac/23UM1IM34052.rgb.jpg/300x300bb.jpg" alt="Taylor Swift" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+              <a href="https://music.apple.com/us/artist/eason-chan/137938148" target="_blank" rel="noopener">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/75/2b/f0/752bf0af-2a56-5294-93c7-072427c70d64/00602577299612.rgb.jpg/300x300bb.jpg" alt="陈奕迅" class="w-24 md:w-28 rounded-lg shadow-md object-cover aspect-square hover:shadow-lg hover:scale-105 transition-all duration-300">
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Photography — scroll-driven horizontal gallery -->
+    <section class="relative" id="photo-section" style="height: 380vh;">
+      <div class="sticky top-0 h-screen overflow-hidden flex flex-col">
+        <!-- Section label -->
+        <div class="pt-32 pb-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+          <h2 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Photography</h2>
+        </div>
+        <!-- Track -->
+        <div class="photo-track flex gap-6 md:gap-8 items-center will-change-transform" id="photo-track">
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/photo-01.JPG" alt="Cathedral entrance with stone statues" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/photo-02.JPG" alt="Domed cathedral in golden light" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/photo-03.JPG" alt="City square with modern Christmas tree structure" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/IMG_2723.jpg" alt="Photography — street scene" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/IMG_4143.jpg" alt="Photography — boats on icy water" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/IMG_2996.jpg" alt="Photography — silhouettes at dusk" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/IMG_0429.jpg" alt="Photography — trees at twilight" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-shrink-0 w-[200px] md:w-[240px] aspect-[2/3] overflow-hidden">
+            <img src="images/IMG_0595.jpg" alt="Photography — lit pavilion at night" class="w-full h-full object-cover block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-32 bg-surface-container-low border-t border-outline-variant/10">
+    <div class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-on-surface-variant">
+        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="material-symbols-outlined align-middle" style="font-size: 16px;">arrow_outward</span></a>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-label-sm text-label-sm text-on-surface-variant/70">
+          <a href="index.html" class="hover:text-primary transition-colors">Work</a>
+          <span>·</span>
+          <a href="work.html" class="hover:text-primary transition-colors">Play</a>
+          <span>·</span>
+          <a href="about.html" class="hover:text-primary transition-colors">About</a>
+          <span>·</span>
+          <a href="mailto:xiaolinjang@gmail.com" class="hover:text-primary transition-colors">xiaolinjang@gmail.com</a>
+          <span>·</span>
+          <span>&copy; 2026. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.group').forEach(el => {
+      el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+      observer.observe(el);
+    });
+
+    // Scroll-driven horizontal scroll for Photography gallery
+    const photoSection = document.getElementById('photo-section');
+    const photoTrack = document.getElementById('photo-track');
+    if (photoSection && photoTrack) {
+      let photoRaf = null;
+      function updatePhotoScroll() {
+        const rect = photoSection.getBoundingClientRect();
+        const viewportH = window.innerHeight;
+        const total = photoSection.offsetHeight - viewportH;
+        const scrolled = Math.min(Math.max(-rect.top, 0), total);
+        const progress = total > 0 ? scrolled / total : 0;
+        const trackW = photoTrack.scrollWidth;
+        const viewportW = window.innerWidth;
+        const distance = Math.max(0, trackW - viewportW);
+        photoTrack.style.transform = `translate3d(${(-progress * distance).toFixed(1)}px, 0, 0)`;
+      }
+      function onPhotoScroll() {
+        if (!photoRaf) photoRaf = requestAnimationFrame(() => {
+          updatePhotoScroll();
+          photoRaf = null;
+        });
+      }
+      window.addEventListener('scroll', onPhotoScroll, { passive: true });
+      window.addEventListener('resize', onPhotoScroll);
+      updatePhotoScroll();
+    }
+  </script>
+</body>
+</html>

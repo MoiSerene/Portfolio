@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Enterprise AI Product Designer — Portfolio</title>
+  <meta name="description" content="Designing the spaces where human intent meets machine intelligence. Enterprise AI product designer focused on systems thinking, human-centered design, and intelligence.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:opsz,wght@14..32,100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#6c59ff",
+            "inverse-on-surface": "#f5f5f5",
+            "primary-container": "#1b1b1b",
+            "on-secondary-fixed-variant": "#3b18d2",
+            "on-primary-container": "#848484",
+            "surface": "#ffffff",
+            "outline": "#7e7576",
+            "on-primary-fixed-variant": "#474747",
+            "surface-dim": "#f0f0f0",
+            "on-primary-fixed": "#1b1b1b",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#838486",
+            "surface-tint": "#5e5e5e",
+            "background": "#ffffff",
+            "on-surface": "#1a1b22",
+            "on-tertiary-fixed-variant": "#454749",
+            "outline-variant": "#cfc4c5",
+            "tertiary-fixed-dim": "#c6c6c8",
+            "surface-container-highest": "#f0f0f0",
+            "inverse-primary": "#c6c6c6",
+            "primary": "#000000",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed": "#e4dfff",
+            "surface-container-high": "#f5f5f5",
+            "secondary-fixed-dim": "#c6c0ff",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#e2e2e2",
+            "on-error-container": "#93000a",
+            "secondary": "#523be6",
+            "tertiary-container": "#1a1c1d",
+            "surface-variant": "#f0f0f0",
+            "error-container": "#ffdad6",
+            "tertiary": "#000000",
+            "on-background": "#1a1b22",
+            "tertiary-fixed": "#e2e2e4",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-secondary-fixed": "#150066",
+            "inverse-surface": "#2f3038",
+            "surface-container-low": "#ffffff",
+            "on-surface-variant": "#4c4546",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-container": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#1a1c1d",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "9999px"
+          },
+          spacing: {
+            unit: "4px",
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+            "margin-mobile": "20px",
+            gutter: "24px"
+          },
+          fontFamily: {
+            "label-sm": ["Geist"],
+            "headline-lg": ["Geist"],
+            "headline-md": ["Geist"],
+            "display-lg": ["Geist"],
+            "body-lg": ["Geist"],
+            "body-md": ["Geist"],
+            "display-lg-mobile": ["Geist"]
+          },
+          fontSize: {
+            "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}],
+            "headline-lg": ["32px", {lineHeight: "1.3", fontWeight: "500"}],
+            "headline-md": ["24px", {lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600"}],
+            "display-lg": ["64px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400"}],
+            "body-lg": ["20px", {lineHeight: "1.6", fontWeight: "400"}],
+            "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}],
+            "display-lg-mobile": ["40px", {lineHeight: "1.2", fontWeight: "400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .hero-gradient {
+      background: radial-gradient(ellipse 50% 45% at 65% 35%, rgba(228, 223, 255, 0.6) 0%, rgba(255,255,255,0) 80%);
+    }
+    .font-hero {
+      font-family: 'Inter Display', 'Inter', sans-serif;
+      font-optical-sizing: auto;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-white text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+  <!-- Navigation (floating glass pill) -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div class="flex items-center gap-1 bg-white/70 backdrop-blur-xl rounded-full pl-2 pr-2 py-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)]">
+      <a href="index.html" class="flex items-center gap-3 pr-4 border-r border-outline-variant/30">
+        <img src="images/Xiaolin.jpg" alt="Xiaolin Jiang" class="w-8 h-8 rounded-full object-cover">
+        <span class="font-body-md text-body-md font-semibold tracking-tight text-primary whitespace-nowrap">Xiaolin Jiang</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 pr-1">
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-primary font-semibold" href="index.html">Work</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="work.html">Play</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="about.html">About</a>
+      </div>
+      <button class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="relative min-h-[80vh] flex flex-col justify-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto hero-gradient">
+
+      <h1 class="font-display-lg text-display-lg text-primary leading-tight mb-8">
+        I design for the moment technical vocabulary would otherwise gatekeep a non-technical user out — and I make the system do the translating instead of the human.
+      </h1>
+    </section>
+
+    <!-- Selected Work -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-32">
+      <h2 class="font-headline-lg text-headline-lg mb-16">Selected Work</h2>
+
+        <!-- Projects (below the title) -->
+        <div class="flex flex-col gap-24">
+          <!-- Project 01 -->
+          <a href="work/conversational-analytics.html" class="project-card group cursor-pointer space-y-8">
+            <div class="relative aspect-[16/9] overflow-hidden">
+              <img src="images/agent-evaluation.gif" alt="Agent Evaluation — evaluation jobs in Agent Studio" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-[10px] tracking-wider">Trimble Agent Studio</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-[10px] tracking-wider">0 to 1</span>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg group-hover:italic transition-all">Agent Evaluation</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                Turning a technical evaluation workflow into something any builder can actually use.
+              </p>
+              <div class="pt-4 flex items-center gap-2 group-hover:gap-4 transition-all text-primary">
+                <span class="font-label-sm text-label-sm">EXPLORE CASE STUDY</span>
+                <span class="material-symbols-outlined">arrow_right_alt</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 02 -->
+          <a href="work/project-space.html" class="project-card group cursor-pointer space-y-8">
+            <div class="relative aspect-[16/9] overflow-hidden">
+              <img src="images/workspace-16x9.png" alt="Project Space — Agent Workspace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-[10px] tracking-wider">Trimble Assist</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-[10px] tracking-wider">0 to 1</span>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg group-hover:italic transition-all">Project Space</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                A persistent project environment that connects trusted project context, AI agents, and collaboration—while keeping information current, permission-aware, and traceable.
+              </p>
+              <div class="pt-4 flex items-center gap-2 group-hover:gap-4 transition-all text-primary">
+                <span class="font-label-sm text-label-sm">EXPLORE CASE STUDY</span>
+                <span class="material-symbols-outlined">arrow_right_alt</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 03 -->
+          <a href="work/ai-knowledge-platform.html" class="project-card group cursor-pointer space-y-8">
+            <div class="relative aspect-[16/9] overflow-hidden">
+              <img src="images/agent-guided-16x9.png" alt="Agent Creator Agent — agent-guided creation flow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-[10px] tracking-wider">Trimble Agent Studio</span>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg group-hover:italic transition-all">Agent Creator Agent</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                Designed the conversational flow for Agent Creator Agent, which walks novice builders from a vague idea to a working AI agent without requiring prompt-engineering knowledge.
+              </p>
+              <div class="pt-4 flex items-center gap-2 group-hover:gap-4 transition-all text-primary">
+                <span class="font-label-sm text-label-sm">EXPLORE CASE STUDY</span>
+                <span class="material-symbols-outlined">arrow_right_alt</span>
+              </div>
+            </div>
+          </a>
+        </div>
+    </section>
+
+    <!-- Archive -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-32 border-t border-outline-variant/10">
+      <h2 class="font-headline-lg text-headline-lg mb-16">Archive</h2>
+
+      <!-- Tech Me Conference — AI ideation workshop -->
+      <div class="mb-20">
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+          <h3 class="font-label-sm text-label-sm tracking-widest text-on-surface-variant">Unleashing the Potential of AI — TechMe Conference</h3>
+          <span class="font-label-sm text-label-sm text-on-surface-variant/60">Helsinki 2025 · Workshop Designer &amp; Facilititor</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl">
+          An interactive two-day hybrid workshop that brought regional sales teams and partners together to identify real user challenges AI could help solve. Co-designed a two-page ideation canvas and Miro board with a Product Manager, guiding participants to step into MEP and Structural Engineer personas, map and prioritize pain points, develop solutions, and vote on the most promising concepts. Rated 8.67/10 by participants.
+        </p>
+        <img src="images/workshop.png" alt="Tech Me Workshop — Persona cards (Alex Structural Engineer / Lisa MEP Engineer) and Designing Your AI Agent / Context Mapping templates" class="w-full h-auto rounded-2xl border border-outline-variant/10 mt-6">
+      </div>
+
+      <!-- WoMo — first archive project -->
+      <div class="mb-20">
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+          <h3 class="font-label-sm text-label-sm tracking-widest text-on-surface-variant">WoMo — Working Moms</h3>
+          <span class="font-label-sm text-label-sm text-on-surface-variant/60">2020.12 · Individual Project</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl mb-8">
+          WoMo (Working Moms) provides access to a powerful community for women to reach higher and find support. Connect with experienced moms working in similar fields and grab info to grow your career in a more inclusive workforce.
+        </p>
+        <div class="bg-zinc-950 rounded-2xl p-3 md:p-4 grid grid-cols-1 gap-3 md:gap-4">
+          <img src="images/womo-all-18.png" alt="WoMo project cover — 03 WoMo, working moms community concept" class="w-full h-auto rounded-xl">
+          <img src="images/womo-all-19.png" alt="WoMo research — birth rate, aging population, and reasons for not wanting children" class="w-full h-auto rounded-xl">
+          <img src="images/womo-all-21.png" alt="WoMo — work-family conflict, traditional gender roles, multi-child policy, insights and design challenge" class="w-full h-auto rounded-xl">
+          <img src="images/womo-all-22.png" alt="WoMo — Background card and family work-conflict visualizations" class="w-full h-auto rounded-xl">
+          <img src="images/womo-all-23.png" alt="WoMo — additional research insights and quotes from mothers" class="w-full h-auto rounded-xl">
+          <img src="images/womo-all-24.png" alt="WoMo — research and interview materials" class="w-full h-auto rounded-xl">
+          <img src="images/womo-all-25.png" alt="WoMo — user interview findings, observation AEIOU notes, and field photos" class="w-full h-auto rounded-xl">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-32 bg-surface-container-low border-t border-outline-variant/10">
+    <div class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-on-surface-variant">
+        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="material-symbols-outlined align-middle" style="font-size: 16px;">arrow_outward</span></a>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-label-sm text-label-sm text-on-surface-variant/70">
+          <a href="index.html" class="hover:text-primary transition-colors">Work</a>
+          <span>·</span>
+          <a href="work.html" class="hover:text-primary transition-colors">Play</a>
+          <span>·</span>
+          <a href="about.html" class="hover:text-primary transition-colors">About</a>
+          <span>·</span>
+          <a href="mailto:xiaolinjang@gmail.com" class="hover:text-primary transition-colors">xiaolinjang@gmail.com</a>
+          <span>·</span>
+          <span>&copy; 2026. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll reveal
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section, .project-card').forEach(el => {
+      el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+      observer.observe(el);
+    });
+
+    // Horizontal scroll for Archive galleries (mouse wheel / trackpad)
+    document.querySelectorAll('.h-scroll').forEach(el => {
+      el.addEventListener('wheel', (e) => {
+        const canScroll = el.scrollWidth > el.clientWidth;
+        if (canScroll && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+          el.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+    });
+  </script>
+</body>
+</html>

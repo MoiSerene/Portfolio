@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local workspace data (project memory, session data — not for public repo)
+.workbuddy/
+
+# Large / source-only assets (keep the optimized versions only)
+# hero.png = full-color source of hero-bw.png (unreferenced, 26 MB)
+# IMG_5831.JPG = previous hero portrait (unreferenced)
+images/hero.png
+images/IMG_5831.JPG

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Case Study: Agent Creator Agent | Xiaolin Jiang</title>
+  <meta name="description" content="Case study: designing the Agent Creator Agent — a guided flow that helps novice builders create a worthwhile AI agent in under 2.5 minutes, without prompt-engineering knowledge.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#6c59ff",
+            "inverse-on-surface": "#f5f5f5",
+            "primary-container": "#1b1b1b",
+            "on-secondary-fixed-variant": "#3b18d2",
+            "on-primary-container": "#848484",
+            "surface": "#ffffff",
+            "outline": "#7e7576",
+            "on-primary-fixed-variant": "#474747",
+            "surface-dim": "#f0f0f0",
+            "on-primary-fixed": "#1b1b1b",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#838486",
+            "surface-tint": "#5e5e5e",
+            "background": "#ffffff",
+            "on-surface": "#1a1b22",
+            "on-tertiary-fixed-variant": "#454749",
+            "outline-variant": "#cfc4c5",
+            "tertiary-fixed-dim": "#c6c6c8",
+            "surface-container-highest": "#f0f0f0",
+            "inverse-primary": "#c6c6c6",
+            "primary": "#000000",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed": "#e4dfff",
+            "surface-container-high": "#f5f5f5",
+            "secondary-fixed-dim": "#c6c0ff",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#e2e2e2",
+            "on-error-container": "#93000a",
+            "secondary": "#523be6",
+            "tertiary-container": "#1a1c1d",
+            "surface-variant": "#f0f0f0",
+            "error-container": "#ffdad6",
+            "tertiary": "#000000",
+            "on-background": "#1a1b22",
+            "tertiary-fixed": "#e2e2e4",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-secondary-fixed": "#150066",
+            "inverse-surface": "#2f3038",
+            "surface-container-low": "#ffffff",
+            "on-surface-variant": "#4c4546",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-container": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#1a1c1d",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "9999px" },
+          spacing: { unit: "4px", "container-max": "1280px", "margin-desktop": "64px", "margin-mobile": "20px", gutter: "24px" },
+          fontFamily: { "label-sm": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "display-lg": ["Geist"], "body-lg": ["Geist"], "body-md": ["Geist"], "display-lg-mobile": ["Geist"] },
+          fontSize: {
+            "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}],
+            "headline-lg": ["32px", {lineHeight: "1.3", fontWeight: "500"}],
+            "headline-md": ["24px", {lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600"}],
+            "display-lg": ["64px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400"}],
+            "body-lg": ["20px", {lineHeight: "1.6", fontWeight: "400"}],
+            "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}],
+            "display-lg-mobile": ["40px", {lineHeight: "1.2", fontWeight: "400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+    body { background-color: #ffffff; color: #1a1b22; -webkit-font-smoothing: antialiased; }
+    .divider { height: 1px; background-color: #cfc4c5; opacity: 0.3; }
+  </style>
+</head>
+<body class="font-body-md text-body-md">
+
+  <!-- Navigation (floating glass pill) -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div class="flex items-center gap-1 bg-white/70 backdrop-blur-xl rounded-full pl-2 pr-2 py-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)]">
+      <a href="../index.html" class="flex items-center gap-3 pr-4 border-r border-outline-variant/30">
+        <img src="../images/Xiaolin.jpg" alt="Xiaolin Jiang" class="w-8 h-8 rounded-full object-cover">
+        <span class="font-body-md text-body-md font-semibold tracking-tight text-primary whitespace-nowrap">Xiaolin Jiang</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 pr-1">
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-primary font-semibold" href="../index.html">Work</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="../work.html">Play</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="../about.html">About</a>
+      </div>
+      <button class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-16">
+    <!-- Hero Section -->
+    <header class="px-margin-desktop max-w-container-max mx-auto mb-24">
+      <div class="max-w-4xl">
+        <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">Case Study No. 03</p>
+        <h1 class="font-display-lg text-display-lg mb-6 leading-[1.1]">Agent Creator Agent</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">Designed the conversational flow for Agent Creator Agent, which walks novice builders from a vague idea to a working AI agent without requiring prompt-engineering knowledge.</p>
+        <div class="flex flex-wrap gap-12 border-t border-outline-variant/30 pt-8">
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Role</p><p class="font-body-md text-body-md font-semibold">Product Designer</p></div>
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Product</p><p class="font-body-md text-body-md font-semibold">Trimble Agent Studio</p></div>
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Phase</p><p class="font-body-md text-body-md font-semibold">Pilot</p></div>
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Users</p><p class="font-body-md text-body-md font-semibold">Designers &amp; small business owners</p></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Image -->
+    <section class="px-margin-desktop max-w-container-max mx-auto mb-32">
+      <div class="aspect-[16/9] w-full overflow-hidden rounded">
+        <img src="../images/agent-guided-16x9.png" alt="Agent Creator Agent — agent-guided creation flow" class="w-full h-full object-cover">
+      </div>
+    </section>
+
+    <article class="px-margin-desktop max-w-container-max mx-auto">
+      <!-- Business Goal · Audience · Problem (at a glance) -->
+      <section class="mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <div>
+            <h3 class="font-body-md text-body-md font-semibold mb-4">Business Goal</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4">
+              The minimum unit of customer value isn't creating an agent &mdash; it's creating and using a worthwhile agent in under 2.5 minutes. That splits into two design goals that don't automatically agree with each other: <strong class="font-semibold text-primary">help people create an agent efficiently</strong>, and <strong class="font-semibold text-primary">help them create one that's actually useful</strong>.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Most of what's interesting in this feature came from designing for both at once.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-body-md text-body-md font-semibold mb-4">Users</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Existing SketchUp, Trimble Connect, and ProjectSight users &mdash; for this phase, mainly designers/architects and small business owners, not dedicated PMs or IT staff. Nobody in this group has a developer on call.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-body-md text-body-md font-semibold mb-4">Problem</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4">
+              A small architecture studio, or a solo/small-team designer running their own practice, already reaches for ChatGPT or Claude for the odd task &mdash; drafting a client email, summarizing notes.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4">
+              <strong class="font-semibold text-primary">What they don't have is a dedicated agent: something wired into their actual SketchUp models, Trimble Connect files, or ProjectSight data, built to run one specific job on repeat.</strong>
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              General chat memory is genuinely good now &mdash; it remembers your preferences &mdash; but it doesn't give you a connected, task-specific agent. Building that yourself, even with something like a custom GPT, means writing instructions and wiring up knowledge and actions by hand. <strong class="font-semibold text-primary">For someone running a two-person studio, that configuration step is the wall.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Tension -->
+      <section class="mb-32">
+        <h2 class="font-headline-lg text-headline-lg mb-8">The Tension</h2>
+        <div class="max-w-2xl">
+          <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+            The fastest possible flow is a single text box &mdash; describe the task, get an agent, done in ten seconds. That satisfies <strong class="font-semibold">&ldquo;efficient&rdquo;</strong> and quietly fails <strong class="font-semibold">&ldquo;useful,&rdquo;</strong> because one sentence usually isn't enough to draft something differentiated for a specific SketchUp or ProjectSight workflow.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            <strong class="font-semibold">So the real design question was: which parts of the 2.5-minute budget buy usefulness, and which parts are just friction to cut?</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- What Shaped the Solution -->
+      <section class="mb-32">
+        <h2 class="font-headline-lg text-headline-lg mb-12">What Shaped the Solution</h2>
+        <div class="md:columns-2 md:gap-x-24 md:h-[360px]" style="column-fill:auto;">
+          <div class="break-inside-avoid mb-10">
+            <p class="font-body-md text-body-md font-semibold mb-2">Templates anchor expectations</p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">People do worse starting from a blank box than from a template, even when they have a clear idea &mdash; a starting point tells them what &ldquo;good&rdquo; looks like.</p>
+          </div>
+          <div class="break-inside-avoid mb-10">
+            <p class="font-body-md text-body-md font-semibold mb-2">Visibility builds trust</p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">People trust an agent more when they watch it get built than when it's handed to them finished.</p>
+          </div>
+          <div class="break-inside-avoid mb-10">
+            <p class="font-body-md text-body-md font-semibold mb-2">Control is not one-size-fits-all</p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">A smaller, more technical-leaning segment wanted the opposite of guidance; for them, being asked questions is friction, not help.</p>
+          </div>
+          <div class="break-inside-avoid mb-10">
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              <strong class="font-semibold">The finding that mattered most for &ldquo;useful&rdquo;:</strong> left alone, people described their task but not their data &mdash; nobody volunteered &ldquo;and here's my actual project file&rdquo; or &ldquo;connect this to my ProjectSight account&rdquo; unless asked.
+            </p>
+          </div>
+          <div class="break-inside-avoid">
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              An agent built from a description alone ends up generic, doing basically what ChatGPT already does for them. The gap wasn't missing project context &mdash; it was that people didn't think to offer it. <strong class="font-semibold">That's what made the nudge to attach knowledge a deliberate step, not an optional add-on.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    <!-- The Solution, Mapped to the Two Goals -->
+    <section id="solution" class="mb-32">
+      <h2 class="font-headline-lg text-headline-lg mb-16">The Solution, Mapped to the Two Goals</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-gutter md:gap-x-24">
+        <div>
+          <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Efficient</p>
+          <div class="w-full h-px bg-primary/20 mb-8"></div>
+          <h3 class="font-headline-md text-headline-md mb-8 leading-[1.2]">Guided + form-based creation</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Agent-guided creation as the default, with templates offered as optional starting points rather than required steps &mdash; that's where &ldquo;reduce setup friction&rdquo; actually happens for someone who's never built anything like this. Form-based creation exists as a second, faster lane for the more hands-on segment who wants to skip the conversation and just fill in fields &mdash; and the two aren't siloed; a user can switch between them mid-flow without losing progress, since they're really two views onto the same underlying agent.
+          </p>
+        </div>
+        <div>
+          <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Useful</p>
+          <div class="w-full h-px bg-primary/20 mb-8"></div>
+          <h3 class="font-headline-md text-headline-md mb-8 leading-[1.2]">Knowledge + visibility</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The guided flow doesn't stop at a text description &mdash; it nudges the user to attach real knowledge (their actual project files, model data) or tools before the agent's first run, since an agent with nothing connected to it can't do much for a real SketchUp or ProjectSight workflow. Trust is built through visibility, not just live preview: as the agent builds, it's writing directly into the same form that powers the form-based path, so a user can switch over at any point and see exactly what the agent filled in &mdash; with a dot marking each field the agent touched, so nothing changes without the user being able to see it happened.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How This Gets Measured -->
+    <section id="metrics" class="mb-32">
+      <h2 class="font-headline-lg text-headline-lg mb-8">How This Gets Measured</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl mb-12">
+        Metrics are set on both sides deliberately, so one goal can't quietly win at the other's expense:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-gutter md:gap-x-24">
+        <div class="space-y-10">
+          <div>
+            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Efficient</p>
+            <div class="w-full h-px bg-primary/20 mb-6"></div>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Onboarding completion rate <strong class="font-semibold text-primary">&ge;50%</strong>, first-agent creation time under <strong class="font-semibold text-primary">2.5 minutes</strong>.
+            </p>
+          </div>
+          <div>
+            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Useful</p>
+            <div class="w-full h-px bg-primary/20 mb-6"></div>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              D7 return-to-agent rate <strong class="font-semibold text-primary">&ge;50%</strong>, and <strong class="font-semibold text-primary">80%</strong> of new agents having at least one knowledge source or tool attached before first run.
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-2xl">
+            Not all of that is coverable with numbers, though. Completion rate tells you people finished, not that it felt easy; D7 return rate tells you who came back, not why the rest didn't. I'd close that gap with something light: a one-question prompt after first run (&ldquo;was this easy to set up?&rdquo; / &ldquo;is this useful to you?&rdquo;), plus a few interviews with people who finished onboarding but never came back &mdash; that second group is where the return-rate number stops explaining itself.
+          </p>
+        </div>
+      </div>
+    </section>
+
+      <!-- Where It Stands -->
+      <section class="mb-32">
+        <h2 class="font-headline-lg text-headline-lg mb-8">Where It Stands</h2>
+        <div class="max-w-2xl">
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Agent Studio is in pilot with a small set of Trimble customers, so there's no real usage data yet &mdash; I'll come back and fill this in once numbers exist.
+          </p>
+        </div>
+      </section>
+
+      <!-- What's Next -->
+      <section class="mb-32">
+        <h2 class="font-headline-lg text-headline-lg mb-8">What's Next</h2>
+        <div class="max-w-2xl">
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Once there's real usage data, the next step is going further than role-level: personalizing based on what someone's actually built and used, not just their job title, and adjusting elicitation depth to match.
+          </p>
+        </div>
+      </section>
+    </article>
+
+    <!-- Back to All Work -->
+    <div class="px-margin-desktop max-w-container-max mx-auto mb-32">
+      <div class="border-t border-outline-variant/30 pt-16 text-center">
+        <p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Back to All Work</p>
+        <a href="../index.html" class="inline-block group">
+          <h3 class="font-headline-lg text-headline-lg group-hover:italic transition-all">
+            View All Projects
+            <span class="material-symbols-outlined align-middle ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </h3>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="w-full mt-32 bg-surface-container-low border-t border-outline-variant/10">
+    <div class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-on-surface-variant">
+        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="material-symbols-outlined align-middle" style="font-size: 16px;">arrow_outward</span></a>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-label-sm text-label-sm text-on-surface-variant/70">
+          <a href="../index.html" class="hover:text-primary transition-colors">Work</a>
+          <span>·</span>
+          <a href="../work.html" class="hover:text-primary transition-colors">Play</a>
+          <span>·</span>
+          <a href="../about.html" class="hover:text-primary transition-colors">About</a>
+          <span>·</span>
+          <a href="mailto:xiaolinjang@gmail.com" class="hover:text-primary transition-colors">xiaolinjang@gmail.com</a>
+          <span>·</span>
+          <span>&copy; 2026. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.onscroll = function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) { nav.classList.add('shadow-sm'); } else { nav.classList.remove('shadow-sm'); }
+    };
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100');
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-4');
+      observer.observe(section);
+    });
+
+    </script>
+</body>
+</html>

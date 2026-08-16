@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Play | Xiaolin Jiang</title>
+  <meta name="description" content="Playground of personal explorations — 3D visuals, experiments, and side projects.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#6c59ff",
+            "inverse-on-surface": "#f5f5f5",
+            "primary-container": "#1b1b1b",
+            "on-secondary-fixed-variant": "#3b18d2",
+            "on-primary-container": "#848484",
+            "surface": "#ffffff",
+            "outline": "#7e7576",
+            "on-primary-fixed-variant": "#474747",
+            "surface-dim": "#f0f0f0",
+            "on-primary-fixed": "#1b1b1b",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#838486",
+            "surface-tint": "#5e5e5e",
+            "background": "#ffffff",
+            "on-surface": "#1a1b22",
+            "on-tertiary-fixed-variant": "#454749",
+            "outline-variant": "#cfc4c5",
+            "tertiary-fixed-dim": "#c6c6c8",
+            "surface-container-highest": "#f0f0f0",
+            "inverse-primary": "#c6c6c6",
+            "primary": "#000000",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed": "#e4dfff",
+            "surface-container-high": "#f5f5f5",
+            "secondary-fixed-dim": "#c6c0ff",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#e2e2e2",
+            "on-error-container": "#93000a",
+            "secondary": "#523be6",
+            "tertiary-container": "#1a1c1d",
+            "surface-variant": "#f0f0f0",
+            "error-container": "#ffdad6",
+            "tertiary": "#000000",
+            "on-background": "#1a1b22",
+            "tertiary-fixed": "#e2e2e4",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-secondary-fixed": "#150066",
+            "inverse-surface": "#2f3038",
+            "surface-container-low": "#ffffff",
+            "on-surface-variant": "#4c4546",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-container": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#1a1c1d",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "9999px"
+          },
+          spacing: {
+            unit: "4px",
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+            "margin-mobile": "20px",
+            gutter: "24px"
+          },
+          fontFamily: {
+            "label-sm": ["Geist"],
+            "headline-lg": ["Geist"],
+            "headline-md": ["Geist"],
+            "display-lg": ["Geist"],
+            "body-lg": ["Geist"],
+            "body-md": ["Geist"],
+            "display-lg-mobile": ["Geist"]
+          },
+          fontSize: {
+            "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}],
+            "headline-lg": ["32px", {lineHeight: "1.3", fontWeight: "500"}],
+            "headline-md": ["24px", {lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600"}],
+            "display-lg": ["64px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400"}],
+            "body-lg": ["20px", {lineHeight: "1.6", fontWeight: "400"}],
+            "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}],
+            "display-lg-mobile": ["40px", {lineHeight: "1.2", fontWeight: "400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 50% 50%, rgba(82, 59, 230, 0.05) 0%, rgba(251, 248, 255, 0) 70%);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+  <!-- Navigation (floating glass pill) -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div class="flex items-center gap-1 bg-white/70 backdrop-blur-xl rounded-full pl-2 pr-2 py-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)]">
+      <a href="index.html" class="flex items-center gap-3 pr-4 border-r border-outline-variant/30">
+        <img src="images/Xiaolin.jpg" alt="Xiaolin Jiang" class="w-8 h-8 rounded-full object-cover">
+        <span class="font-body-md text-body-md font-semibold tracking-tight text-primary whitespace-nowrap">Xiaolin Jiang</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 pr-1">
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="index.html">Work</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-primary font-semibold" href="work.html">Play</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="about.html">About</a>
+      </div>
+      <button class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-24">
+    <!-- Play Hero -->
+    <section class="relative min-h-[40vh] flex flex-col justify-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="max-w-4xl pt-16 pb-12">
+        <h1 class="font-headline-lg text-headline-lg text-primary leading-tight">
+          Play — side projects and visual experiments.
+        </h1>
+      </div>
+    </section>
+
+    <!-- Section: Visual Exploration -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-32">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-12">
+        <h2 class="font-label-sm text-label-sm tracking-widest text-on-surface-variant">Visual Exploration</h2>
+        <span class="font-label-sm text-label-sm text-on-surface-variant/60">Created with Gemini</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a class="group space-y-4">
+          <div class="aspect-video overflow-hidden rounded-2xl bg-[#F8F8F8]">
+            <img src="images/explorer-files.png" alt="Visual exploration — blue folder containing PDF, document, and image cards" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+          <p class="font-body-md text-body-md text-primary">Project Files</p>
+        </a>
+        <a class="group space-y-4">
+          <div class="aspect-video overflow-hidden rounded-2xl bg-[#F8F8F8]">
+            <img src="images/explorer-security.png" alt="Visual exploration — blue padlock with a key on a soft grid background" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+          <p class="font-body-md text-body-md text-primary">Permission & Trust</p>
+        </a>
+        <a class="group space-y-4">
+          <div class="aspect-video overflow-hidden rounded-2xl bg-[#F8F8F8]">
+            <img src="images/explorer-build.png" alt="Visual exploration — stacked blue gradient building blocks forming a tower" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+          <p class="font-body-md text-body-md text-primary">Build & Iteration</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section: Feature Shaping -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-32">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+        <h2 class="font-label-sm text-label-sm tracking-widest text-on-surface-variant">Feature Shaping</h2>
+        <span class="font-label-sm text-label-sm text-on-surface-variant/60">Skill created with Cursor</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl mb-8">
+        A Cursor skill that shapes a rough feature idea into a shareable product brief — walking from background context through Why Now, scenarios and use cases, and product alignment, down to a visual communication output anyone can react to.
+      </p>
+      <div class="w-full rounded-2xl overflow-hidden border border-outline-variant/20">
+        <div class="aspect-[2/1] bg-zinc-100">
+          <img src="images/skill.png" alt="Feature Shaping skill — workflow from Background Information Input through Feature_Shaping_Skill, Why Now? Analysis, Scenario & Use Cases, Typical Scenarios, Product Alignment, and Visual Communication Output." class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Vibe Coding -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-32">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+        <h2 class="font-label-sm text-label-sm tracking-widest text-on-surface-variant">Vibe Coding</h2>
+        <span class="font-label-sm text-label-sm text-on-surface-variant/60">Vibe coded in 1 day</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl mb-8">
+        Born from a simple need — one place to collect and find the design methods and skills I keep reaching for. I used it as a test run for the full vibe-coding loop, from first screen to a live site in a day. Not a deeply-researched product: the point was just to prove the process end to end.
+      </p>
+      <a href="https://github.com/MoiSerene/ai-design-kit" target="_blank" rel="noopener" class="block group">
+        <div class="w-full rounded-2xl overflow-hidden border border-outline-variant/20">
+          <div class="aspect-video bg-zinc-100">
+            <img src="images/ai-design-kit.jpg" alt="Reusable AI Design Kit — Design methods, ready to execute. From JTBD analysis to Agent UX design, turn frameworks into reusable skills. Workflows systematically." class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Section: AI Illustrations -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-32">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-12">
+        <h2 class="font-label-sm text-label-sm tracking-widest text-on-surface-variant">AI Illustrations</h2>
+        <span class="font-label-sm text-label-sm text-on-surface-variant/60">Created with Recraft.ai</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a class="group space-y-4">
+          <div class="aspect-[3/4] overflow-hidden rounded-2xl bg-zinc-100">
+            <img src="images/helsinki-rain.png" alt="Helsinki rain — woman with coat walking past an orange building" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+          <p class="font-body-md text-body-md text-primary">Helsinki — Rain</p>
+        </a>
+        <a class="group space-y-4">
+          <div class="aspect-[3/4] overflow-hidden rounded-2xl bg-zinc-100">
+            <img src="images/helsinki-coffee.png" alt="Autumn in Helsinki — coffee and cinnamon roll by the window of an art gallery" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+          <p class="font-body-md text-body-md text-primary">Helsinki — Autumn Coffee</p>
+        </a>
+        <a class="group space-y-4">
+          <div class="aspect-[3/4] overflow-hidden rounded-2xl bg-zinc-100">
+            <img src="images/helsinki-winter.png" alt="Helsinki winter — painting and wine workshop scene" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+          </div>
+          <p class="font-body-md text-body-md text-primary">Helsinki — Winter Workshop</p>
+        </a>
+      </div>
+    </section>
+
+      </main>
+
+  <footer class="w-full mt-32 bg-surface-container-low border-t border-outline-variant/10">
+    <div class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-on-surface-variant">
+        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="material-symbols-outlined align-middle" style="font-size: 16px;">arrow_outward</span></a>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-label-sm text-label-sm text-on-surface-variant/70">
+          <a href="index.html" class="hover:text-primary transition-colors">Work</a>
+          <span>·</span>
+          <a href="work.html" class="hover:text-primary transition-colors">Play</a>
+          <span>·</span>
+          <a href="about.html" class="hover:text-primary transition-colors">About</a>
+          <span>·</span>
+          <a href="mailto:xiaolinjang@gmail.com" class="hover:text-primary transition-colors">xiaolinjang@gmail.com</a>
+          <span>·</span>
+          <span>&copy; 2026. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section, section a.group').forEach(el => {
+      el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+      observer.observe(el);
+    });
+
+      </script>
+</body>
+</html>

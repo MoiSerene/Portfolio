@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Case Study: Project Space | Xiaolin Jiang</title>
+  <meta name="description" content="Case study: designing a governed AI workspace for AECO project work — a persistent project environment that connects trusted project context, AI agents, and collaboration, keeping information current, permission-aware, and traceable.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#6c59ff",
+            "inverse-on-surface": "#f5f5f5",
+            "primary-container": "#1b1b1b",
+            "on-secondary-fixed-variant": "#3b18d2",
+            "on-primary-container": "#848484",
+            "surface": "#ffffff",
+            "outline": "#7e7576",
+            "on-primary-fixed-variant": "#474747",
+            "surface-dim": "#f0f0f0",
+            "on-primary-fixed": "#1b1b1b",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#838486",
+            "surface-tint": "#5e5e5e",
+            "background": "#ffffff",
+            "on-surface": "#1a1b22",
+            "on-tertiary-fixed-variant": "#454749",
+            "outline-variant": "#cfc4c5",
+            "tertiary-fixed-dim": "#c6c6c8",
+            "surface-container-highest": "#f0f0f0",
+            "inverse-primary": "#c6c6c6",
+            "primary": "#000000",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed": "#e4dfff",
+            "surface-container-high": "#f5f5f5",
+            "secondary-fixed-dim": "#c6c0ff",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#e2e2e2",
+            "on-error-container": "#93000a",
+            "secondary": "#523be6",
+            "tertiary-container": "#1a1c1d",
+            "surface-variant": "#f0f0f0",
+            "error-container": "#ffdad6",
+            "tertiary": "#000000",
+            "on-background": "#1a1b22",
+            "tertiary-fixed": "#e2e2e4",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-secondary-fixed": "#150066",
+            "inverse-surface": "#2f3038",
+            "surface-container-low": "#ffffff",
+            "on-surface-variant": "#4c4546",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-container": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#1a1c1d",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "9999px" },
+          spacing: { unit: "4px", "container-max": "1280px", "margin-desktop": "64px", "margin-mobile": "20px", gutter: "24px" },
+          fontFamily: { "label-sm": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "display-lg": ["Geist"], "body-lg": ["Geist"], "body-md": ["Geist"], "display-lg-mobile": ["Geist"] },
+          fontSize: {
+            "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}],
+            "headline-lg": ["32px", {lineHeight: "1.3", fontWeight: "500"}],
+            "headline-md": ["24px", {lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600"}],
+            "display-lg": ["64px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400"}],
+            "body-lg": ["20px", {lineHeight: "1.6", fontWeight: "400"}],
+            "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}],
+            "display-lg-mobile": ["40px", {lineHeight: "1.2", fontWeight: "400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+    body { background-color: #ffffff; color: #1a1b22; -webkit-font-smoothing: antialiased; }
+  </style>
+</head>
+<body class="font-body-md text-body-md">
+
+  <!-- Navigation (floating glass pill) -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div class="flex items-center gap-1 bg-white/70 backdrop-blur-xl rounded-full pl-2 pr-2 py-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)]">
+      <a href="../index.html" class="flex items-center gap-3 pr-4 border-r border-outline-variant/30">
+        <img src="../images/Xiaolin.jpg" alt="Xiaolin Jiang" class="w-8 h-8 rounded-full object-cover">
+        <span class="font-body-md text-body-md font-semibold tracking-tight text-primary whitespace-nowrap">Xiaolin Jiang</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 pr-1">
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-primary font-semibold" href="../index.html">Work</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="../work.html">Play</a>
+        <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="../about.html">About</a>
+      </div>
+      <button class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-16">
+    <!-- Hero Section -->
+    <header class="px-margin-desktop max-w-container-max mx-auto mb-24">
+      <div class="max-w-4xl">
+        <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">Case Study No. 02</p>
+        <h1 class="font-headline-lg text-headline-lg mb-6 leading-[1.1]">Project Space</h1>
+        <p class="font-body-lg text-body-lg text-primary font-medium mb-3 leading-relaxed">Designing a governed AI workspace for AECO project work</p>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">A persistent project environment that connects trusted project context, AI agents, and collaboration—while keeping information current, permission-aware, and traceable.</p>
+        <div class="flex flex-wrap gap-12 border-t border-outline-variant/30 pt-8">
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Role</p><p class="font-body-md text-body-md font-semibold">Product Designer/builder</p></div>
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Product</p><p class="font-body-md text-body-md font-semibold">Trimble Assist</p></div>
+          <div><p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Platform</p><p class="font-body-md text-body-md font-semibold">Mobile, Website, embedded iframe in Trimble Products</p></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Image -->
+    <section class="px-margin-desktop max-w-container-max mx-auto mb-32">
+      <div class="aspect-[16/9] w-full overflow-hidden rounded">
+        <img src="../images/workspace-16x9.png" alt="Project Space — Agent Workspace UI" class="w-full h-full object-cover">
+      </div>
+    </section>
+
+    <article class="px-margin-desktop max-w-container-max mx-auto">
+
+      <!-- AI is moving toward persistent workspaces -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">AI is moving toward persistent workspaces</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            AI products are evolving from isolated prompts toward persistent, instruction-driven, source-connected workspaces, and then toward agent-enabled execution environments. ChatGPT, Claude, Perplexity, NotebookLM, GitHub Copilot, and AI coding tools all validate parts of that model.
+          </p>
+        </div>
+      </section>
+
+      <!-- Why this matters more in AECO -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Why this matters more in AECO</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Three converging reasons.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            <strong class="font-semibold">Information is structurally fragmented.</strong> Project knowledge lives across BIM models, drawings, specs, RFIs, submittals, schedules, meetings, emails, contracts, and multiple CDEs. Research on BIM workflows shows projects increasingly managed across several CDEs, with contractual and technical gaps limiting how well they connect. Autodesk's research names the same root cause differently: disconnected systems and reactive coordination. The result isn't one source of truth. It's several, often disagreeing.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            <strong class="font-semibold">The industry loses time to searching, not just doing.</strong> Construction managers and executives spend an average of 11.5 hours a week researching and analyzing data; BIM/VDC and preconstruction roles spend even more. That overhead becomes delayed decisions, duplicated analysis, and coordination work that shouldn't exist.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            <strong class="font-semibold">Adoption is outrunning trust.</strong> 98% of Design &amp; Make leaders already use at least one AI tool, and 59% expect to adopt agentic AI within a year. Yet 60% raise security concerns and 50% name AI integration as a major challenge. Adoption isn't the bottleneck anymore. Governance is.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The promise of a Project Space here isn't "better organization." It's faster retrieval of approved context, consistent AI behavior across sessions, less repeated briefing, a reusable record of decisions, and less context lost at handoffs.
+          </p>
+        </div>
+      </section>
+
+      <!-- The design challenge -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">The design challenge</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            A generic "folder for chats and files" won't work here. AECO's project-based delivery, multi-party collaboration, and revision-sensitive information raise the bar. The product has to be trustworthy, traceable, permission-aware, and connected to systems teams already use.
+          </p>
+          <p class="font-body-md text-body-md font-semibold leading-relaxed mb-6">
+            How might we create a persistent AI workspace where agents reason over the right information, at the right time, for the right people, while keeping context current, permissions intact, and decisions traceable?
+          </p>
+          <div class="mb-6 overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-primary/20">
+                  <th class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant py-3 pr-8 font-medium">Challenge</th>
+                  <th class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant py-3 font-medium">Product question</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-outline-variant/30">
+                  <td class="font-body-md text-body-md font-semibold py-3 pr-8">Context</td>
+                  <td class="font-body-md text-body-md text-on-surface-variant py-3">What information should the AI know?</td>
+                </tr>
+                <tr class="border-b border-outline-variant/30">
+                  <td class="font-body-md text-body-md font-semibold py-3 pr-8">Freshness</td>
+                  <td class="font-body-md text-body-md text-on-surface-variant py-3">How do we ensure it's still current?</td>
+                </tr>
+                <tr class="border-b border-outline-variant/30">
+                  <td class="font-body-md text-body-md font-semibold py-3 pr-8">Governance</td>
+                  <td class="font-body-md text-body-md text-on-surface-variant py-3">Who is allowed to see and use it?</td>
+                </tr>
+                <tr>
+                  <td class="font-body-md text-body-md font-semibold py-3 pr-8">Accountability</td>
+                  <td class="font-body-md text-body-md text-on-surface-variant py-3">Can people trace why AI said something?</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Every decision below answers one row of this table.
+          </p>
+        </div>
+      </section>
+
+      <!-- Reframing the question -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Reframing the question</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            AECO already has a natural container for AI work: the project. It brings together the people, information, decisions, and systems, like Trimble Connect, needed to deliver an outcome.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            So instead of asking "what should this conversation remember," the better question is: what should AI know about this project? That reframe is the hinge the product direction turns on.
+          </p>
+        </div>
+      </section>
+
+      <!-- A project is not just a collection of information -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">A project is not just a collection of information</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            In AECO, project information is:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 mb-6">
+            <li class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><strong class="font-semibold">Distributed</strong>, across CDEs, files, links, conversations</li>
+            <li class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><strong class="font-semibold">Shared</strong>, across owners, architects, engineers, contractors</li>
+            <li class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><strong class="font-semibold">Permission-controlled</strong>, access varies by person, even within one project</li>
+            <li class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><strong class="font-semibold">Revision-sensitive</strong>, versions get superseded or invalidated</li>
+            <li class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><strong class="font-semibold">Consequential</strong>, AI output can influence real decisions</li>
+          </ul>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            So the design has to answer more than "what can I give the model." It has to answer: is this the right information, is it current, is this user allowed to see it, can the answer be traced to evidence, and who's accountable for the outcome.
+          </p>
+        </div>
+      </section>
+
+      <!-- The product direction -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">The product direction</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Project Space is the governed AI project intelligence layer, not a generic chat interface, and not an autonomous project manager.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            It brings together approved project context, project-level instructions, AI agents, conversations, search, source evidence, and collaboration, so people and agents work from the same context, inside the boundaries that context already carries.
+          </p>
+          <div class="w-full rounded overflow-hidden border border-outline-variant/20">
+            <img src="../images/project-space-product-direction.png" alt="Project Space — A governed AI project intelligence layer, organizing Agents, Governance, and Context as three layers." class="w-full h-auto block">
+          </div>
+        </div>
+      </section>
+
+      <!-- Context that survives switching agents -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Context that survives switching agents</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            A conversation is temporary. A project persists.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Users establish context once (anchor a project to Trimble Connect, upload files, add links, set project-level instructions, add connectors and skills) and carry it across conversations and agents.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The key decision: switching agents doesn't mean switching context. Agents can differ in capability or approach, but they all operate inside the same governed environment, so no one re-briefs a new agent from zero.
+          </p>
+        </div>
+      </section>
+
+      <!-- Trust decision: permission follows the source -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Trust decision: permission follows the source</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Connecting a project to AI shouldn't create a new way to bypass permissions. If a user can't access something in Trimble Connect, the AI can't retrieve it for them either.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            For projects shared across an organization, AI access inherits the existing Trimble Connect access model. The AI operates inside the same boundary as the user, not a parallel one.
+          </p>
+        </div>
+      </section>
+
+      <!-- Trust decision: accessible isn't the same as current -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Trust decision: accessible isn't the same as current</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Permission is only half of trustworthy context. Information also changes: documents get updated, superseded, or discarded. Treating every connected file as equally valid lets context degrade quietly, and the failure stays invisible until someone acts on stale information.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Project Space makes source status explicit: Processing → Active → Updated → Superseded → Discarded. Users can always see whether a source is current, changed, or no longer valid.
+          </p>
+        </div>
+      </section>
+
+      <!-- Trust decision: evidence is part of the answer -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Trust decision: evidence is part of the answer</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            A plausible answer isn't enough. Users need to know where it came from, which revision, whether it's still active, and whether they can open the original. Evidence ships with the answer, not below it.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Ask for the latest structural drawing for Level 03, and the answer arrives with its source attached: Structural Plan — S-203, Rev 04, Active, updated Aug 6, with a link to open it in Trimble Connect.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            The harder case is disagreement. If a drawing says 300mm, a spec says 350mm, and a meeting note says 300mm, the system shouldn't quietly pick one and sound confident. It surfaces the conflict and says it can't determine which requirement is authoritative. Trust doesn't come from sounding more confident. It comes from <strong class="font-semibold">making evidence and uncertainty visible.</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- Scoping the MVP: trust first, execution later -->
+      <section class="mb-32">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="font-headline-lg text-headline-lg mb-8">Scoping the MVP: trust first, execution later</h2>
+          <div class="w-full rounded overflow-hidden border border-outline-variant/20 mb-8">
+            <img src="../images/user-journey.png" alt="User Journey — four-step flow (Create & Scope, Add Context & Set Behavior, Select/Create & Review, Validate/Share & Capture) with Key Task, User Actions, Touchpoints, and Opportunity columns." class="w-full h-auto block">
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            The broader vision is agents helping execute workflows across project systems, but autonomous execution carries far more risk than answering questions does. So for the MVP: build a trusted project context hub before an autonomous project manager.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Connect trusted project information. Govern by respecting permissions, instructions, and revisions. Work by letting users switch agents, search, and ask questions. Verify by surfacing sources and uncertainty. Collaborate with conversations private by default, shared intentionally. Capture validated outputs as shared project knowledge.
+          </p>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- Next Project -->
+    <div class="px-margin-desktop max-w-container-max mx-auto mb-32">
+      <div class="border-t border-outline-variant/30 pt-16 text-center">
+        <p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Next Project</p>
+        <a href="ai-knowledge-platform.html" class="inline-block group">
+          <h3 class="font-headline-lg text-headline-lg group-hover:italic transition-all">
+            Agent Creator Agent
+            <span class="material-symbols-outlined align-middle ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </h3>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="w-full mt-32 bg-surface-container-low border-t border-outline-variant/10">
+    <div class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-on-surface-variant">
+        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="material-symbols-outlined align-middle" style="font-size: 16px;">arrow_outward</span></a>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-label-sm text-label-sm text-on-surface-variant/70">
+          <a href="../index.html" class="hover:text-primary transition-colors">Work</a>
+          <span>·</span>
+          <a href="../work.html" class="hover:text-primary transition-colors">Play</a>
+          <span>·</span>
+          <a href="../about.html" class="hover:text-primary transition-colors">About</a>
+          <span>·</span>
+          <a href="mailto:xiaolinjang@gmail.com" class="hover:text-primary transition-colors">xiaolinjang@gmail.com</a>
+          <span>·</span>
+          <span>&copy; 2026. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.onscroll = function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) { nav.classList.add('shadow-sm'); } else { nav.classList.remove('shadow-sm'); }
+    };
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100');
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-4');
+      observer.observe(section);
+    });
+
+    </script>
+</body>
+</html>
