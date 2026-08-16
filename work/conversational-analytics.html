@@ -100,11 +100,17 @@
         <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="../work.html">Play</a>
         <a class="px-3 py-1.5 rounded-full font-body-md text-body-md transition-colors text-on-surface-variant hover:text-primary" href="../about.html">About</a>
       </div>
-      <button class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
+      <button id="menu-toggle" class="md:hidden text-on-surface-variant pl-2 pr-1" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span class="inline-flex items-center justify-center w-5 h-5" id="menu-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span></button>
     </div>
   </nav>
+
+  <div id="mobile-menu" class="md:hidden hidden fixed top-[88px] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-32px)] max-w-sm">
+      <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] border border-outline-variant/20 p-3 flex flex-col gap-1">
+        <a href="../index.html" class="px-4 py-3 rounded-xl font-body-md text-body-md text-primary hover:bg-surface-container transition-colors">Work</a>
+        <a href="../work.html" class="px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors">Play</a>
+        <a href="../about.html" class="px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors">About</a>
+      </div>
+    </div>
 
   <main class="pt-32 pb-16">
     <!-- Hero Section -->
@@ -309,7 +315,7 @@
         <a href="project-space.html" class="inline-block group">
           <h3 class="font-headline-lg text-headline-lg group-hover:italic transition-all">
             Project Space
-            <span class="material-symbols-outlined align-middle ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            <span class="inline-flex items-center justify-center w-4 h-4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
           </h3>
         </a>
       </div>
@@ -319,7 +325,7 @@
   <footer class="w-full mt-32 bg-surface-container-low border-t border-outline-variant/10">
     <div class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-on-surface-variant">
-        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="material-symbols-outlined align-middle" style="font-size: 16px;">arrow_outward</span></a>
+        <a href="https://www.linkedin.com/in/xiaolinjiang" target="_blank" rel="noopener" class="font-body-md text-body-md inline-flex items-center gap-1 hover:text-primary transition-colors">LinkedIn<span class="inline-flex items-center justify-center w-[14px] h-[14px] -mt-0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-label-sm text-label-sm text-on-surface-variant/70">
           <a href="../index.html" class="hover:text-primary transition-colors">Work</a>
           <span>·</span>
@@ -355,5 +361,36 @@
     });
 
     </script>
+<style>
+#menu-toggle[aria-expanded="true"] #menu-icon svg line:first-child { transform: rotate(45deg) translate(5px, 5px); transform-origin: center; }
+#menu-toggle[aria-expanded="true"] #menu-icon svg line:nth-child(2) { opacity: 0; }
+#menu-toggle[aria-expanded="true"] #menu-icon svg line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); transform-origin: center; }
+#menu-icon svg line { transition: transform 0.2s, opacity 0.2s; }
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('hidden', !open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    setOpen(menu.classList.contains('hidden'));
+  });
+  menu.addEventListener('click', function(e){ e.stopPropagation(); });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setOpen(false); });
+  });
+  document.addEventListener('click', function(){
+    if (!menu.classList.contains('hidden')) setOpen(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !menu.classList.contains('hidden')) setOpen(false);
+  });
+})();
+</script>
 </body>
 </html>
