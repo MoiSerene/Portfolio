@@ -6,7 +6,8 @@
 .workbuddy/
 
 # Large / source-only assets (keep the optimized versions only)
-# hero.png = full-color source of hero-bw.png (unreferenced, 26 MB)
+# hero.png is NOW referenced by about.html — must be tracked!
+# hero-bw.png = obsolete PIL-processed grayscale variant (no longer used)
 # IMG_5831.JPG = previous hero portrait (unreferenced)
-images/hero.png
+images/hero-bw.png
 images/IMG_5831.JPG
